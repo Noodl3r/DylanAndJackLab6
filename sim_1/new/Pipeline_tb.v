@@ -44,8 +44,6 @@ module Pipeline_tb;
     InstrIn = 32'b000000_00000_00000_00000_00000000000;  // Do nothing
 
 
-    // To Do: implement more test cases here
-
     #100;
     $finish;
 
