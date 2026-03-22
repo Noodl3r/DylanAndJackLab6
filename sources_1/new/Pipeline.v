@@ -85,11 +85,12 @@ module Pipeline (
 
   // --- ALU ---
 
-  // A dummy ALU function is implemented to always performs addition, this is connected to the S3 stage ALU out register, skipping S3 stage for demo purposes
-  assign S3_ALUOut = S2_RD1 + S2_RD2;
-  assign S3_WriteSelect = S2_WriteSelect;
-  assign S3_WriteEnable = S2_WriteEnable;
-  // you need to remove the above assign statements and implement the ALU and the rest of the pipeline stages according to the figure and the instructions
+  ALU alu (
+      .R1(S3_ALUOut),
+      .OpCode(S2_ALUOp),
+      .R2(S2_RD1),
+      .R3(ALU_R3),
+  );
 
   // --- S3 Stage: Write Back (EX/WB Register) ---
   wire [31:0] S3_ALUOut;
