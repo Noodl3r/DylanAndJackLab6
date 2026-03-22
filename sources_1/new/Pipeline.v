@@ -20,9 +20,9 @@ module Pipeline (
   S1_Register S1_Reg (
       .S1_ReadSelect1(S1_ReadSelect1),
       .S1_ReadSelect2(S1_ReadSelect2),
-      .S1_IMM(S1_IMM),
-      .S1_DataSource(S1_DataSource),
-      .S1_ALUOp(S1_ALUOp),
+      .S1_IMM        (S1_IMM),
+      .S1_DataSource (S1_DataSource),
+      .S1_ALUOp      (S1_ALUOp),
       .S1_WriteSelect(S1_WriteSelect),
       .S1_WriteEnable(S1_WriteEnable),
 
@@ -34,29 +34,29 @@ module Pipeline (
   // --- Register File ---
   wire [31:0] RF_ReadData1, RF_ReadData2;
   nbit_register_file RF (
-      .clk(clk),
-      .RegWrite(S3_WriteEnable),
+      .clk          (clk),
+      .RegWrite     (S3_WriteEnable),
       .write_address(S3_WriteSelect),
-      .write_data(S3_ALUOut),
-      .read_sel_1(S1_ReadSelect1),
-      .read_sel_2(S1_ReadSelect2),
-      .read_data_1(RF_ReadData1),
-      .read_data_2(RF_ReadData2)
+      .write_data   (S3_ALUOut),
+      .read_sel_1   (S1_ReadSelect1),
+      .read_sel_2   (S1_ReadSelect2),
+      .read_data_1  (RF_ReadData1),
+      .read_data_2  (RF_ReadData2)
   );
 
   // --- S2 Stage: Execute (ID/EX Register) ---
   wire [31:0] S2_RD1, S2_RD2, S2_IMM;
-  wire       S2_DataSrc;
+  wire       S2_DataSource;
   wire [2:0] S2_ALUOp;
   wire       S2_WriteEnable;
   wire [4:0] S2_WriteSelect;
 
   S2_Register S2_Reg (
-      .S2_RD1(S2_RD1),
-      .S2_RD2(S2_RD2),
-      .S2_IMM(S2_IMM),
-      .S2_DataSource(S2_DataSrc),
-      .S2_ALUOp(S2_ALUOp),
+      .S2_RD1        (S2_RD1),
+      .S2_RD2        (S2_RD2),
+      .S2_IMM        (S2_IMM),
+      .S2_DataSource (S2_DataSource),
+      .S2_ALUOp      (S2_ALUOp),
       .S2_WriteEnable(S2_WriteEnable),
       .S2_WriteSelect(S2_WriteSelect),
 
@@ -80,25 +80,37 @@ module Pipeline (
       .R3(ALU_R3),
       .RD2(S2_RD2),
       .IMM(S2_IMM),
-      .DataSrc(S2_DataSource)
+      .DataSource(S2_DataSource)
   );
 
   // --- ALU ---
+  wire [31:0] S2_R1;
 
   ALU alu (
-      .R1(S3_ALUOut),
+      .R1(S2_R1),
       .OpCode(S2_ALUOp),
       .R2(S2_RD1),
-      .R3(ALU_R3),
+      .R3(ALU_R3)
   );
 
   // --- S3 Stage: Write Back (EX/WB Register) ---
+
   wire [31:0] S3_ALUOut;
   wire [ 4:0] S3_WriteSelect;
   wire        S3_WriteEnable;
 
 
   // S3_Register
+  S3_Register S3_Reg (
+      .S3_ALUOut     (S3_ALUOut),
+      .S3_WriteSelect(S3_WriteSelect),
+      .S3_WriteEnable(S3_WriteEnable),
+      .S2_R1         (S2_R1),
+      .S2_WriteSelect(S2_WriteSelect),
+      .S2_WriteEnable(S2_WriteEnable),
+      .clk           (clk),
+      .rst           (rst)
+  );
 
   // --- Final Output ---
   assign Out = S3_ALUOut;
