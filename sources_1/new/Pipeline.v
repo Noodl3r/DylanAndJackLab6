@@ -72,10 +72,16 @@ module Pipeline (
       .S1_WriteSelect(S1_WriteSelect)
   );
 
-  // To Do: Implement the remaining stages of the pipeline according to the figure
 
   // --- ALU Operand MUX ---
-  S3_Mux S3_mux ();
+  wire [31:0] ALU_R3;
+
+  S3_Mux S3_mux (
+      .R3(ALU_R3),
+      .RD2(S2_RD2),
+      .IMM(S2_IMM),
+      .DataSrc(S2_DataSource)
+  );
 
   // --- ALU ---
 

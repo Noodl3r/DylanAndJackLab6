@@ -17,9 +17,6 @@ module S2_Register (
     input [ 2:0] S1_ALUOp,
     input        S1_WriteEnable,  // Write enable signal
     input [ 4:0] S1_WriteSelect   // Write select (destination register)
-
-
-
 );
 
   always @(posedge clk) begin
