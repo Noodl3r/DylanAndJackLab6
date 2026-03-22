@@ -10,9 +10,8 @@ module S2_Register (
 
     input        clk,
     input        rst,
-    input [31:0] RD1,  // Register File Read Data 1
-    input [31:0] RD2,  // Register File Read Data 2
-
+    input [31:0] RD1,             // Register File Read Data 1
+    input [31:0] RD2,             // Register File Read Data 2
     input [31:0] S1_IMM,
     input        S1_DataSource,
     input [ 2:0] S1_ALUOp,

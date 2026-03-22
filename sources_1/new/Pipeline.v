@@ -9,8 +9,7 @@ module Pipeline (
 
   // --- S1 Stage: Instruction Decode (IF/ID Register) ---
   wire [4:0] S1_ReadSelect1, S1_ReadSelect2;
-  wire [31:0] S1_ImmediateValue;
-  wire [15:0] S1_IMM;
+  wire [31:0] S1_IMM;
   wire        S1_DataSource;
   wire [ 2:0] S1_ALUOp;
   wire [ 4:0] S1_WriteSelect;
@@ -19,20 +18,17 @@ module Pipeline (
 
 
   S1_Register S1_Reg (
-      .clk(clk),
-      .rst(rst),
-      .InstrIn(InstrIn),
       .S1_ReadSelect1(S1_ReadSelect1),
       .S1_ReadSelect2(S1_ReadSelect2),
       .S1_IMM(S1_IMM),
       .S1_DataSource(S1_DataSource),
       .S1_ALUOp(S1_ALUOp),
       .S1_WriteSelect(S1_WriteSelect),
-      .S1_WriteEnable(S1_WriteEnable)
+      .S1_WriteEnable(S1_WriteEnable),
 
-      // To Do: implement the rest of the logic according to the figure
-      // Completed
-
+      .clk(clk),
+      .rst(rst),
+      .InstrIn(InstrIn)
   );
 
   // --- Register File ---
@@ -56,22 +52,24 @@ module Pipeline (
   wire [4:0] S2_WriteSelect;
 
   S2_Register S2_Reg (
+      .S2_RD1(S2_RD1),
+      .S2_RD2(S2_RD2),
+      .S2_IMM(S2_IMM),
+      .S2_DataSource(S2_DataSrc),
+      .S2_ALUOp(S2_ALUOp),
+      .S2_WriteEnable(S2_WriteEnable),
+      .S2_WriteSelect(S2_WriteSelect),
+
+
       .clk(clk),
       .rst(rst),
       .RD1(RF_ReadData1),
       .RD2(RF_ReadData2),
-
-      // To Do: implement the rest of the logic according to the figure
-
+      .S1_IMM(S1_IMM),
+      .S1_DataSource(S1_DataSource),
+      .S1_ALUOp(S1_ALUOp),
       .S1_WriteEnable(S1_WriteEnable),
-      .S1_WriteSelect(S1_WriteSelect),
-      .S2_RD1(S2_RD1),
-      .S2_RD2(S2_RD2),
-
-      // To Do: implement the rest of the logic according to the figure
-
-      .S2_WriteEnable(S2_WriteEnable),
-      .S2_WriteSelect(S2_WriteSelect)
+      .S1_WriteSelect(S1_WriteSelect)
   );
 
   // To Do: Implement the remaining stages of the pipeline according to the figure
