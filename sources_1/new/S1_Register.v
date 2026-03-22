@@ -5,7 +5,7 @@ module S1_Register (
     input      [31:0] InstrIn,
     output reg [ 4:0] S1_ReadSelect1,  // Source register 1 (r2)
     output reg [ 4:0] S1_ReadSelect2,  // Source register 2 (r3) for R-format
-    output reg [15:0] S1_IMM,
+    output reg [31:0] S1_IMM,
     output reg        S1_DataSource,
     output reg [ 2:0] S1_ALUOp,
     output reg [ 4:0] S1_WriteSelect,  // Destination register (r1)
@@ -16,13 +16,12 @@ module S1_Register (
 
 );
   // Need to do this here.
-  reg [31:0] Extended_S1_IMM;
 
   always @(posedge clk) begin
     if (rst) begin
       S1_ReadSelect1 <= 5'd0;
       S1_ReadSelect2 <= 5'd0;
-      S1_IMM         <= 15'd0;
+      S1_IMM         <= 32'd0;
       S1_DataSource  <= 1'b0;
       S1_ALUOp       <= 3'b0;
       S1_WriteSelect <= 5'd0;
@@ -38,7 +37,6 @@ module S1_Register (
       S1_WriteSelect <= InstrIn[25:21];
       S1_ReadSelect1 <= InstrIn[20:16];
       S1_ReadSelect2 <= InstrIn[15:11];
-      S1_IMM         <= InstrIn[15:0];
 
 
       // Always enable writing in this simple design. This is because we focus on R and I format instructions.
@@ -51,20 +49,20 @@ module S1_Register (
       // Did it above for sake of order.
 
       // Decode the immediate value by sign-extending the lower 16 bits.
-      assign Extended_S1_IMM = {{16{S1_IMM[15]}}, S1_IMM};
+      S1_IMM         <= {{16{InstrIn[15]}}, InstrIn[15:0]};
 
 
 
 
       // Data source selection:
       // Bit 29 indicates whether the instruction uses an immediate (1) or a register (0).
-      S1_DataSource <= InstrIn[29];
+      S1_DataSource  <= InstrIn[29];
 
 
       // Order here changed because it makes more sense to me.
       // Decode ALU operation:
       // Bits [28:26] are fed into the ALU's ALUOp.
-      S1_ALUOp      <= InstrIn[28:26];
+      S1_ALUOp       <= InstrIn[28:26];
 
     end
   end

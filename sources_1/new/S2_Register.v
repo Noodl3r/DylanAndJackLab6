@@ -1,20 +1,24 @@
 `timescale 1ns / 1ns
 module S2_Register (
-    input        clk,
-    input        rst,
-    input [31:0] RD1,  // Register File Read Data 1
-    input [31:0] RD2,  // Register File Read Data 2
+    output reg [31:0] S2_RD1,         // Latched Read Data 1
+    output reg [31:0] S2_RD2,         // Latched Read Data 2
+    output reg [31:0] S2_IMM,         //IMM
+    output reg        S2_DataSource,  //Selection
+    output reg [ 2:0] S2_ALUop,
+    input             clk,
+    input             rst,
+    input      [31:0] RD1,            // Register File Read Data 1
+    input      [31:0] RD2,            // Register File Read Data 2
 
     // To Do: implement the rest of the logic according to the figure
-
-
-    input             S1_WriteEnable,  // Write enable signal
-    input      [ 4:0] S1_WriteSelect,  // Write select (destination register)
-    output reg [31:0] S2_RD1,          // Latched Read Data 1
-    output reg [31:0] S2_RD2,          // Latched Read Data 2
-
-
     // To Do: implement the rest of the logic according to the figure
+    // COMPLETED ?
+
+
+    input       S1_WriteEnable,  // Write enable signal
+    input [4:0] S1_WriteSelect,  // Write select (destination register)
+
+
 
     output reg       S2_WriteEnable,  // Latched write enable
     output reg [4:0] S2_WriteSelect   // Latched write select
