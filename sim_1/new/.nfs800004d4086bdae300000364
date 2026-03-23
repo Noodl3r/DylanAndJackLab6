@@ -1,0 +1,80 @@
+/*
+
+Xilinx Vivado v2022.1 (64-bit) [Major: 2022, Minor: 1]
+SW Build: 3526262 on Mon Apr 18 15:47:01 MDT 2022
+IP Build: 3524634 on Mon Apr 18 20:55:01 MDT 2022
+
+Process ID (PID): 256447
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sun Mar 22 21:27:33 EDT 2026
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: AlmaLinux release 8.10 (Cerulean Leopard)
+OS Version: 4.18.0-553.89.1.el8_10.x86_64
+OS Architecture: amd64
+Available processors (cores): 32
+
+Display: 0.0
+Screen size: 3840x2160
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=18
+Scale size: 27
+
+Java version: 	11.0.11 64-bit
+Java home: 	/ad/eng/linux/opt/Xilinx/Vivado/2022.1/Vivado/2022.1/tps/lnx64/jre11.0.11_9
+Java executable: 	/ad/eng/linux/opt/Xilinx/Vivado/2022.1/Vivado/2022.1/tps/lnx64/jre11.0.11_9/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m, -Xrs]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	dylansh
+User home directory: /ad/eng/users/d/y/dylansh
+User working directory: /ad/eng/users/d/y/dylansh/EC413/Lab6/lab6/lab6.srcs/sim_1/new
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /ad/eng/linux/opt/Xilinx/Vivado/2022.1/Vivado
+HDI_APPROOT: /ad/eng/opt/Xilinx/Vivado/2022.1/Vivado/2022.1
+RDI_DATADIR: /ad/eng/linux/opt/Xilinx/Vivado/2022.1/Vivado/2022.1/data
+RDI_BINDIR: /ad/eng/linux/opt/Xilinx/Vivado/2022.1/Vivado/2022.1/bin
+
+Vivado preferences file: /home/dylansh/.Xilinx/Vivado/2022.1/vivado.xml
+Vivado preferences directory: /home/dylansh/.Xilinx/Vivado/2022.1/
+Vivado layouts directory: /ad/eng/users/d/y/dylansh/.Xilinx/Vivado/2022.1/data/layouts
+PlanAhead jar file: 	/ad/eng/linux/opt/Xilinx/Vivado/2022.1/Vivado/2022.1/lib/classes/planAhead.jar
+Vivado log file: 	/ad/eng/users/d/y/dylansh/EC413/Lab6/lab6/lab6.srcs/sim_1/new/vivado.log
+Vivado journal file: 	/ad/eng/users/d/y/dylansh/EC413/Lab6/lab6/lab6.srcs/sim_1/new/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-256447-vlsi58.bu.edu
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /ad/eng/opt/Xilinx/Vivado/2022.1/Vivado/2022.1/ids_lite/ISE
+XILINX_DSP: /ad/eng/opt/Xilinx/Vivado/2022.1/Vivado/2022.1/ids_lite/ISE
+XILINX_HLS: /ad/eng/opt/Xilinx/Vivado/2022.1/Vitis_HLS/2022.1
+XILINX_PLANAHEAD: /ad/eng/opt/Xilinx/Vivado/2022.1/Vivado/2022.1
+XILINX_VITIS: 
+XILINX_VIVADO: /ad/eng/opt/Xilinx/Vivado/2022.1/Vivado/2022.1
+XILINX_VIVADO_HLS: /ad/eng/opt/Xilinx/Vivado/2022.1/Vivado/2022.1
+
+
+GUI allocated memory:	256 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,815 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,815 MB. GUI used memory: 86 MB. Current time: 3/22/26, 9:27:34 PM EDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
