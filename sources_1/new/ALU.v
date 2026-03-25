@@ -10,7 +10,7 @@ module ALU (
       3'b001: R1 = ~R2;
       3'b011: R1 = R2 + R3;
       3'b100: R1 = ~(R2 | R3);
-      3'b110: R1 = R2 - R3;  // SUB
+      3'b010: R1 = R2 - R3;  // SUB
       3'b101: R1 = ~(R2 & R3);
       3'b110: R1 = R2 & R3;  // AND TYPO Here, FIX LATER
       3'b110: R1 = R2 & R3;
